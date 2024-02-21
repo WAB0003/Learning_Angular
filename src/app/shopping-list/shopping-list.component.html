@@ -1,0 +1,17 @@
+<div class="row" >
+    <div class="col-xs-10" >
+        <!-- BIND NEW INGEDIENT WHENEVER EDIT OPTIONS ARE DONE -->
+        <app-shopping-edit (ingredientAdded)="onIngredientAdded($event)" ></app-shopping-edit>
+        <hr>
+        <ul class="list-group">
+            <!-- LOOP THROUGH ALL INGREDIENTS AND DISPLAY THEM -->
+            <a 
+                class="list-group-item" 
+                style="cursor:pointer"
+                *ngFor="let ingredient of ingredients"
+            >
+                {{ ingredient.name }} ({{ingredient.amount}})
+            </a>
+        </ul>
+    </div>
+</div>

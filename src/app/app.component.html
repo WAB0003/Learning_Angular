@@ -1,0 +1,11 @@
+<!-- APP HEADER COMPONENT BINDS TO A CLICKED HEADER METHOD  -->
+<app-header (clickedHeader)="onNavigate($event)" ></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" >
+            <!-- OnNavigate() method updates currentHeader string to recipe or shopping list -->
+            <app-recipes *ngIf="currentHeader==='recipe'" ></app-recipes>
+            <app-shopping-list *ngIf="currentHeader==='shopping_list'"></app-shopping-list>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="row" >
+    <div class="col-xs-12">
+        <button class="btn btn-success">New Recipe</button>
+    </div>
+</div>
+<hr>
+<div class="row" >
+    <div class="col-xs-12">
+        <!-- LOOP THROUGH ALL RECIPE ITEMS AND PASS THROUGH RECIPE-ITEM COMPONENT -->
+        <!-- BIND A SELECTED RECIPE TO PASS recipe_element TO PARENT THROUGH 'onRecipeSelected' METHOD -->
+        <app-recipe-item
+            *ngFor="let recipe_element of recipes" 
+            [recipe]="recipe_element"
+            (recipeSelected) = "onRecipeSelected(recipe_element)"
+        >
+        </app-recipe-item>
+    </div>
+</div>

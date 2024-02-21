@@ -1,0 +1,21 @@
+<div class="row" >
+    <!-- TWO VIEWS ON RECIPE PAGE (1. A LIST OF ALL RECIPES, AND 2. THE DETAILS OF A SELECTED RECIPE) -->
+    <!-- 1) A LIST OF ALL RECIPES: -->
+    <div class="col-md-5" >
+        <!-- BIND RECIPE SELECTED IN CHILD COMPONENT AND ASSIGN IT TO A LOCAL COMPONENT VARIABLE 'selectedRecipe' -->
+        <app-recipe-list 
+            (recipeWasSelected)="selectedRecipe=$event"></app-recipe-list>
+    </div>
+    <div class="col-md-7" >
+        <!-- CREATE IF STATEMENT ON TO DISPLAY INFORMATION WHEN RECIPE IS SELECTED -->
+        <app-recipe-detail
+            *ngIf="selectedRecipe; else infoText"
+            [recipe]="selectedRecipe" 
+        >
+        </app-recipe-detail>
+        <!-- ng-template is ONLY rendered by Angular when instructed to -->
+        <ng-template #infoText>
+            <p>Please Select A Recipe</p>
+        </ng-template>
+    </div>
+</div>
